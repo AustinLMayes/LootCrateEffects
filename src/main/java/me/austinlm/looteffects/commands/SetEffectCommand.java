@@ -1,11 +1,12 @@
 package me.austinlm.looteffects.commands;
 
-import me.austinlm.looteffects.CommandUtils;
 import me.austinlm.looteffects.CrateOpenEffect;
 import me.austinlm.looteffects.EffectListener;
 import me.austinlm.looteffects.EffectsManager;
+import me.austinlm.looteffects.utils.CommandUtils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -33,7 +34,7 @@ public class SetEffectCommand implements CommandExecutor {
 				CrateOpenEffect found = this.manager.search(CommandUtils.joinRemaining(args, 0));
 				if (found != null) {
 					this.listener.selectEffect(found);
-					sender.sendMessage(
+					Bukkit.broadcast(
 							Component.text().content("Selected Effect: ").append(
 									Component.text().content(found.getName()).color(NamedTextColor.LIGHT_PURPLE)
 							).color(NamedTextColor.GREEN).build());

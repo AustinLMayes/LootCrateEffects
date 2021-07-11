@@ -1,6 +1,7 @@
 package me.austinlm.looteffects;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+import me.austinlm.looteffects.utils.CommandUtils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;

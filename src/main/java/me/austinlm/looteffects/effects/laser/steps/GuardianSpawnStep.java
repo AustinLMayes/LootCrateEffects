@@ -1,4 +1,4 @@
-package me.austinlm.looteffects.effects.spotlight.steps;
+package me.austinlm.looteffects.effects.laser.steps;
 
 import com.google.common.collect.Lists;
 import java.util.List;
@@ -43,7 +43,6 @@ public class GuardianSpawnStep implements EffectStep {
 					holders.add(holder);
 					where.getWorld().playSound(where, Sound.BLOCK_DEEPSLATE_HIT, 1f, 0.4f);
 				});
-				System.out.println(x + ", " + z);
 				Thread.sleep(1000);
 			}
 		}

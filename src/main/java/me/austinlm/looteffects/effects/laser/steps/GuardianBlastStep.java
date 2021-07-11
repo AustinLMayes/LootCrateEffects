@@ -1,4 +1,4 @@
-package me.austinlm.looteffects.effects.spotlight.steps;
+package me.austinlm.looteffects.effects.laser.steps;
 
 import java.util.List;
 import java.util.Random;

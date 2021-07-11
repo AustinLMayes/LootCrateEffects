@@ -4,6 +4,7 @@ import java.util.concurrent.Phaser;
 import me.austinlm.looteffects.CrateOpenEffect;
 import me.austinlm.looteffects.EffectStep;
 import me.austinlm.looteffects.LootEffectsPlugin;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -31,12 +32,11 @@ public class EffectRunner extends BukkitRunnable {
 
 	@Override
 	public void run() {
-		System.out.println("Start");
+		Bukkit.getLogger().info("Executing " + this.toRun.getName());
 		executeSync(() -> this.toRun.onStart(info), this.toRun.isThreadSafe());
 		try {
-			int i = 1;
 			for (EffectStep step : this.toRun.getSteps()) {
-				System.out.println("Executing step " + i);
+				log("Beginning execution...", step);
 				executeSync(() -> {
 					try {
 						step.begin(info);
@@ -45,13 +45,15 @@ public class EffectRunner extends BukkitRunnable {
 					}
 				}, step.isThreadSafe());
 				if (step.hasCallback()) {
+					log("Waiting for step to call back", step);
 					this.executionController.arriveAndAwaitAdvance();
+					log("Got callback", step);
 				}
-				System.out.println("Called back from step " + i);
 				if (step.getExecutionDelay() > 0) {
+					log("Delaying for " + step.getExecutionDelay(), step);
 					Thread.sleep(step.getExecutionDelay() * 1000L);
 				}
-				System.out.println("Finishing step " + i);
+				log("Finishing up", step);
 				executeSync(() -> {
 					try {
 						step.finish(info);
@@ -59,14 +61,17 @@ public class EffectRunner extends BukkitRunnable {
 						handleException(e);
 					}
 				}, step.isThreadSafe());
-				i++;
 			}
 		} catch (Exception e) {
 			handleException(e);
 		}
-		System.out.println("Out of steps!");
+		Bukkit.getLogger().info("Completing...");
 		executeSync(() -> this.toRun.onComplete(info), this.toRun.isThreadSafe());
 		this.completionCallback.run();
+	}
+
+	private void log(String message, EffectStep step) {
+		Bukkit.getLogger().info("[" + step.getId() + "]: " + message);
 	}
 
 	private void handleException(Exception e) {

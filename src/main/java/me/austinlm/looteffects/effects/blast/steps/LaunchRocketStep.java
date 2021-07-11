@@ -47,7 +47,7 @@ public class LaunchRocketStep implements EffectStep {
 
 	@Override
 	public String getId() {
-		return null;
+		return "rocket-blast";
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package me.austinlm.looteffects;
+package me.austinlm.looteffects.utils;
 
 import net.kyori.adventure.audience.MessageType;
 import net.kyori.adventure.identity.Identity;

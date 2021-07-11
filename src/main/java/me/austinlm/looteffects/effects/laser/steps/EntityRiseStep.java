@@ -1,4 +1,4 @@
-package me.austinlm.looteffects.effects.spotlight.steps;
+package me.austinlm.looteffects.effects.laser.steps;
 
 import me.austinlm.looteffects.EffectStep;
 import me.austinlm.looteffects.runner.EffectExecutionInfo;

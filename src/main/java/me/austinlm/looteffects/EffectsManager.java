@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 import me.austinlm.looteffects.effects.blast.BlastOffEffect;
-import me.austinlm.looteffects.effects.spotlight.SpotLightEffect;
+import me.austinlm.looteffects.effects.laser.LaserEffect;
 import me.austinlm.looteffects.runner.EffectRunner;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Location;
@@ -18,7 +18,7 @@ public class EffectsManager {
 	private final AtomicBoolean running = new AtomicBoolean();
 
 	public EffectsManager() {
-		this.effects = Arrays.asList(new BlastOffEffect(), new SpotLightEffect());
+		this.effects = Arrays.asList(new BlastOffEffect(), new LaserEffect());
 	}
 
 	public void showEffect(CrateOpenEffect toShow, Location where, Player viewer) {
