@@ -1,0 +1,10 @@
+name: LootBoxEffects
+main: me.austinlm.looteffects.LootEffectsPlugin
+version: ${project.version}
+authors:
+  - Austin Mayes
+commands:
+  set-effect:
+    description: Set a specific effect to run.
+    usage: /set-effect id
+api-version: 1.17
