@@ -26,7 +26,7 @@ public class CommandUtils {
 
 		TextComponent.Builder builder = Component.text()
 				.append(
-						Component.text("[" + WARNING + "]").color(NamedTextColor.GOLD)
+						Component.text("[" + WARNING + "] ").color(NamedTextColor.GOLD)
 				)
 				.append(
 						Component.text().append(message).color(NamedTextColor.RED)

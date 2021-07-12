@@ -1,4 +1,4 @@
-package me.austinlm.looteffects.effects;
+package me.austinlm.looteffects.effects.common;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,11 +17,14 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
+/**
+ * Spawn a stand with a random item on it and raise it up to just above the frame.
+ */
 public class StarterStep implements EffectStep {
 
 	private static final Random RANDOM = new Random();
 	private static final List<Material> SAFE_MATS = Arrays.stream(Material.values())
-			.filter(m -> m.isBlock() && m.isSolid()).collect(Collectors.toList());
+			.filter(m -> m.isSolid() && !m.isInteractable()).collect(Collectors.toList());
 
 	@Override
 	public void begin(EffectExecutionInfo info) {

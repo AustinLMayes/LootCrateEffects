@@ -3,8 +3,8 @@ package me.austinlm.looteffects;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import me.austinlm.looteffects.effects.EntitySpinStep;
-import me.austinlm.looteffects.effects.StarterStep;
+import me.austinlm.looteffects.effects.common.EntitySpinStep;
+import me.austinlm.looteffects.effects.common.StarterStep;
 import me.austinlm.looteffects.runner.EffectExecutionInfo;
 
 /**

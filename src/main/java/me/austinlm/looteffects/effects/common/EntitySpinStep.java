@@ -1,4 +1,4 @@
-package me.austinlm.looteffects.effects;
+package me.austinlm.looteffects.effects.common;
 
 import me.austinlm.looteffects.EffectStep;
 import me.austinlm.looteffects.runner.EffectExecutionInfo;
@@ -6,6 +6,9 @@ import me.austinlm.looteffects.utils.EntityMover;
 import org.bukkit.Sound;
 import org.bukkit.util.Vector;
 
+/**
+ * Spins the stand above the frame
+ */
 public class EntitySpinStep implements EffectStep {
 
 	@Override
